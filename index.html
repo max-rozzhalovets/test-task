@@ -21,25 +21,41 @@
 <body class="body">
 	<section class="product-section">
 		<div class="hero-container">
-			<div class="swiper">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img src="./images/Rectangle 1.jpg" alt="Gepelde hennep zaden">
+			<div class="swiper-container">
+				<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="./images/Rectangle 1.jpg" alt="Gepelde hennep zaden">
+						</div>
+						<div class="swiper-slide">
+							<img src="./images/Rectangle 572.png" alt="Gepelde hennep zaden">
+						</div>
+						<div class="swiper-slide">
+							<img src="./images/Rectangle 573.jpg" alt="Gepelde hennep zaden">
+						</div>
+						<div class="swiper-slide">
+							<img src="./images/Rectangle 576.jpg" alt="Gepelde hennep zaden">
+						</div>
 					</div>
-					<div class="swiper-slide">
-						<img src="./images/Rectangle 572.png" alt="Gepelde hennep zaden">
-					</div>
-					<div class="swiper-slide">
-						<img src="./images/Rectangle 573.jpg" alt="Gepelde hennep zaden">
-					</div>
-					<div class="swiper-slide">
-						<img src="./images/Rectangle 576.jpg" alt="Gepelde hennep zaden">
-					</div>
-					...
+					<div class="swiper-button-next swiper-button"></div>
+					<div class="swiper-button-prev swiper-button"></div>
 				</div>
-				<!-- If we need navigation buttons -->
-				<div class="swiper-button swiper-button-prev"></div>
-				<div class="swiper-button swiper-button-next"></div>
+				<div thumbsSlider="" class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="./images/Rectangle 1.jpg" alt="Gepelde hennep zaden">
+						</div>
+						<div class="swiper-slide">
+							<img src="./images/Rectangle 572.png" alt="Gepelde hennep zaden">
+						</div>
+						<div class="swiper-slide">
+							<img src="./images/Rectangle 573.jpg" alt="Gepelde hennep zaden">
+						</div>
+						<div class="swiper-slide">
+							<img src="./images/Rectangle 576.jpg" alt="Gepelde hennep zaden">
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="product__info">
 				<div class="quote">
@@ -64,7 +80,10 @@
 					Hennepzaad vormt de ideale basis voor talloze smoothies, shakes, salades, brood en hennepmelk. Perfect voor veganisten, vegetariërs, rawfood fans, sporters en iedereen die de voorkeur geeft aan plantaardige eiwitten. 500 gram in kartonnen koker, 250 en 1000 gram in zak.
 				</p>
 				<ul class="product__properties">
-					<li class="product__property">GLUTENVRIJ</li>
+					<li class="product__property">
+						<img src="./images/Hexagon.svg" alt="dsds">
+						<span>GLUTENVRIJ</span>
+					</li>
 					<li class="product__property">ZUIVELVRIJ</li>
 					<li class="product__property">VEGANISTISCH</li>
 					<li class="product__property">VEGETARISCH</li>
@@ -144,7 +163,7 @@
 						Rijk aan mineralen en antioxidanten Bevat 15 van de 18 voor de mens essentiële mineralen, waaronder calcium, jodium, kalium, magnesium en ijzer. Bevat daarnaast vitamine A, B, C, D, E, F en K, eiwitten en antioxidanten (bètacaroteen)
 					</p>
 				</div>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/e1xt8css5lk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/e1xt8css5lk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 				<!-- <video width="320" height="240" controls>
 					<source src="movie.mp4" type="video/mp4">
 					<source src="movie.ogg" type="video/ogg">
@@ -208,24 +227,26 @@
 
 	<script type="module">
 		import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
-	
-		const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  })
-	</script>
+
+		let swiper = new Swiper(".mySwiper", {
+		loop: true,
+		spaceBetween: 10,
+		slidesPerView: 4,
+		freeMode: true,
+		watchSlidesProgress: true,
+		});
+		let swiper2 = new Swiper(".mySwiper2", {
+		loop: true,
+		spaceBetween: 10,
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+		thumbs: {
+			swiper: swiper,
+		},
+		});
+  	</script>
 
 	<script>
 		const description = document.querySelector(".description__options")
